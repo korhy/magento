@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Learning_Merchant>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </Learning_Merchant>
     </modules>
     <global>
@@ -27,6 +27,9 @@
                     <merchantman>
                         <table>learning_merchant_merchantman</table>
                     </merchantman>
+                    <merchantman_product>
+                      <table>learning_merchant_merchantman_product</table>
+                    </merchantman_product>
                 </entities>
             </learning_merchant_resource>
         </models>

@@ -72,7 +72,10 @@ class Learning_Merchant_Adminhtml_Merchant_MerchantmanController extends Mage_Ad
 
             try {
                 $merchantman->addData($data);
-                $merchantman->setData("slug", "test");
+                $products = $this->getRequest()->getPost('products', -1);
+                if ($products != -1) {
+                    $merchantman->setProductsData(Mage::helper('adminhtml/js')->decodeGridSerializedInput($products));
+                }
                 $merchantman->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('learning_merchant')->__('The merchantman has been saved.'));
@@ -180,6 +183,33 @@ class Learning_Merchant_Adminhtml_Merchant_MerchantmanController extends Mage_Ad
         }
 
         return $this->_redirect('*/*/index');
+    }
+
+    public function productsAction(){
+        $this->_initMerchantman();
+        $this->loadLayout();
+        $this->getLayout()->getBlock('merchantman.edit.tab.product')
+            ->setMerchantmanProducts($this->getRequest()->getPost('merchantman_products', null));
+        $this->renderLayout();
+    }
+
+
+    public function productsgridAction(){
+        $this->_initMerchantman();
+        $this->loadLayout();
+        $this->getLayout()->getBlock('merchantman.edit.tab.product')
+            ->setMerchantmanProducts($this->getRequest()->getPost('merchantman_products', null));
+        $this->renderLayout();
+    }
+
+    protected function _initMerchantman()
+    {
+      $id = $this->getRequest()->getParam('id');
+      /** @var Learning_Merchant_Model_Merchantman $merchantman */
+      $merchantman = Mage::getModel('learning_merchant/merchantman')->load($id);
+      if ($merchantman->getId() || $id == 0) {
+          Mage::register('current_merchantman', $merchantman);
+      }
     }
 
 }
