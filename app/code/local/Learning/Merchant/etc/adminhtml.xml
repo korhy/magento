@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <learning_merchant translate="title" module="learning_merchant">
+            <title>Merchant</title>
+            <sort_order>70</sort_order>
+            <children>
+                <merchant_merchantman translate="title" module="learning_merchant">
+                    <title>Manage Merchantman</title>
+                    <action>adminhtml/merchant_merchantman</action>
+                    <sort_order>0</sort_order>
+                </merchant_merchantman>
+            </children>
+        </learning_merchant>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <learning_merchant>
+                        <children>
+                            <merchant_merchantman translate="title" module="learning_merchant">
+                                <title>Manage Merchantman</title>
+                                <sort_order>0</sort_order>
+                            </merchant_merchantman>
+                        </children>
+                    </learning_merchant>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

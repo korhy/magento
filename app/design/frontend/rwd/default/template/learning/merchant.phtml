@@ -1,0 +1,12 @@
+<?php $slides = $this->getMerchantmans(); ?>
+<?php $helper = Mage::helper('learning_merchant'); ?>
+<ul class="bxslider">
+
+    <?php foreach ($slides as $slide): ?>
+        <li>
+            <?php echo $slide->getName(); ?>
+        </li>
+    <?php endforeach; ?>
+
+</ul>
+
