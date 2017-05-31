@@ -20,7 +20,8 @@ $merchantManTable = $installer->getConnection()
     ->addColumn('surname', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array())
     ->addColumn('name', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array())
     ->addColumn('image_url', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array())
-    ->addColumn('description', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array());
+    ->addColumn('description', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array())
+    ->addColumn('slug', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array());
 
 
 $installer->getConnection()->createTable($merchantManTable);

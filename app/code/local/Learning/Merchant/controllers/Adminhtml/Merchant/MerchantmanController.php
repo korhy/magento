@@ -76,6 +76,7 @@ class Learning_Merchant_Adminhtml_Merchant_MerchantmanController extends Mage_Ad
                 if ($products != -1) {
                     $merchantman->setProductsData(Mage::helper('adminhtml/js')->decodeGridSerializedInput($products));
                 }
+                $merchantman->setData("slug", "test");
                 $merchantman->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('learning_merchant')->__('The merchantman has been saved.'));

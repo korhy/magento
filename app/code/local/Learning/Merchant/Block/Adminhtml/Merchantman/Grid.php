@@ -66,6 +66,13 @@ class Learning_Merchant_Block_Adminhtml_Merchantman_Grid extends Mage_Adminhtml_
             'index'  => 'description'
         ));
 
+        $this->addColumn('slug', array(
+            'header' => $this->__('Slug'),
+            'align'  => 'right',
+            'width'  => '100px',
+            'index'  => 'slug'
+        ));
+
         return parent::_prepareColumns();
     }
 
