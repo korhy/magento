@@ -15,6 +15,7 @@ class Learning_Merchant_Model_Resource_merchantman extends Mage_Core_Model_Resou
         $readAdapter = $this->_getReadAdapter();
 
         $sql = $readAdapter->select()->from($table)->where("slug = '".$slug."' ");
+        $sql->limit(1);
 
         $merchantman = $readAdapter->fetchRow($sql);
 
@@ -22,8 +23,7 @@ class Learning_Merchant_Model_Resource_merchantman extends Mage_Core_Model_Resou
             $object->setData($merchantman);
         }
 
-        return $object;
-
+        return $this;
     }
 
     /**
