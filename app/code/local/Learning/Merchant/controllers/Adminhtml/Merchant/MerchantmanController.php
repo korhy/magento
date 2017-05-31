@@ -72,6 +72,7 @@ class Learning_Merchant_Adminhtml_Merchant_MerchantmanController extends Mage_Ad
 
             try {
                 $merchantman->addData($data);
+                $merchantman->setData("slug", "test");
                 $merchantman->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('learning_merchant')->__('The merchantman has been saved.'));
