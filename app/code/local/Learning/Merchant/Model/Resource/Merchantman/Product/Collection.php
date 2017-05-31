@@ -20,7 +20,7 @@ class Learning_Merchant_Model_Resource_Merchantman_Product_Collection
         if (!$this->_joinedFields){
             $this->joinFields();
         }
-        $this->getSelect()->where('related.[entity]_id = ?', $merchantman);
+        $this->getSelect()->where('related.merchantman_id = ?', $merchantman);
         return $this;
     }
 }

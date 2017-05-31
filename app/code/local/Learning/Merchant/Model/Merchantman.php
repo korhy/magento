@@ -26,7 +26,7 @@ class Learning_Merchant_Model_Merchantman extends Mage_Core_Model_Abstract
             return $this->_productInstance;
         }
         protected function _afterSave() {
-            $this->getProductInstance()->save[Entity]Relation($this);
+            $this->getProductInstance()->saveMerchantmanRelation($this);
             return parent::_afterSave();
         }
         public function getSelectedProducts(){

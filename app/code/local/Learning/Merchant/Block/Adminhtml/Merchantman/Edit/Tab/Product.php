@@ -7,7 +7,7 @@ class Learning_Merchant_Block_Adminhtml_Merchantman_Edit_Tab_Product
         $this->setDefaultSort('position');
         $this->setDefaultDir('ASC');
         $this->setUseAjax(true);
-        if ($this->get[Entity]()->getId()) {
+        if ($this->getMerchantman()->getId()) {
             $this->setDefaultFilter(array('in_products'=>1));
         }
     }
@@ -94,10 +94,10 @@ class Learning_Merchant_Block_Adminhtml_Merchantman_Edit_Tab_Product
     }
     public function getGridUrl(){
         return $this->getUrl('*/*/productsGrid', array(
-            'id'=>$this->get[Entity]()->getId()
+            'id'=>$this->getMerchantman()->getId()
         ));
     }
-    public function get[Entity](){
+    public function getMerchantman(){
         return Mage::registry('current_merchantman');
     }
     protected function _addColumnFilterToCollection($column){
