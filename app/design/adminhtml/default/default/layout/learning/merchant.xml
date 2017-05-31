@@ -19,4 +19,27 @@
             </block>
         </reference>
     </adminhtml_merchant_merchantman_edit>
+    <adminhtml_merchant_merchantman_products>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="learning_merchant/adminhtml_merchantman_edit_tab_product" name="merchantman.edit.tab.product"/>
+            <block type="adminhtml/widget_grid_serializer" name="product_grid_serializer">
+                <reference name="product_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>merchantman.edit.tab.product</grid_block_name>
+                            <data_callback>getSelectedProducts</data_callback>
+                            <hidden_input_name>products</hidden_input_name>
+                            <reload_param_name>merchantman_products</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_merchant_merchantman_products>
+    <adminhtml_merchant_merchantman_productsgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="learning_merchant/adminhtml_merchantman_edit_tab_product" name="merchantman.edit.tab.product"/>
+        </block>
+    </adminhtml_merchant_merchantman_productsgrid>
 </layout>

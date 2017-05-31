@@ -17,4 +17,31 @@ class Learning_Merchant_Model_Merchantman extends Mage_Core_Model_Abstract
     {
         $this->_init('learning_merchant/merchantman');
     }
+
+    protected $_productInstance = null;
+        public function getProductInstance(){
+            if (!$this->_productInstance) {
+                $this->_productInstance = Mage::getSingleton('learning_merchant/merchantman_product');
+            }
+            return $this->_productInstance;
+        }
+        protected function _afterSave() {
+            $this->getProductInstance()->save[Entity]Relation($this);
+            return parent::_afterSave();
+        }
+        public function getSelectedProducts(){
+            if (!$this->hasSelectedProducts()) {
+                $products = array();
+                foreach ($this->getSelectedProductsCollection() as $product) {
+                    $products[] = $product;
+                }
+                $this->setSelectedProducts($products);
+            }
+            return $this->getData('selected_products');
+        }
+        public function getSelectedProductsCollection(){
+            $collection = $this->getProductInstance()->getProductCollection($this);
+            return $collection;
+        }
+
 }
