@@ -30,7 +30,8 @@ class Learning_Merchant_IndexController extends Mage_Core_Controller_Front_Actio
         }
 
         Mage::register('merchant', $entity);
-
+        $products = Mage::getModel('learning_merchant/merchantman')->getProducts();
+        var_dump($products);
         $this->loadLayout();
         $this->renderLayout();
 
