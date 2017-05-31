@@ -75,4 +75,15 @@ class Learning_Merchant_Model_Resource_merchantman extends Mage_Core_Model_Resou
 
 
     }
+
+    public function getProducts(){
+      $table = $this->getMainTable();
+      $readAdapter = $this->_getReadAdapter();
+
+      $sql = $readAdapter->select()->join(array('learning_merchant_merchantman_product' =>
+      $this->getTable('learning_merchant/merchantman_product')),
+      $this->getMainTable() . '.entity_id = learning_merchant_merchantman_product.merchantman_id',),
+      array());
+
+    }
 }

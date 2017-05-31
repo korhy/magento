@@ -1,4 +1,5 @@
-<?php $merchantman = Mage::registry('merchant'); ?>
+<?php $merchantman = Mage::registry('merchant');
+?>
 
 <?php $helper = Mage::helper('learning_merchant'); ?>
 <?php echo 'Name -> '.$merchantman->getName();  ?>
@@ -8,4 +9,3 @@
 <?php echo 'name -> '.$merchantman->getDescription();  ?>
 
 <img src="<?php echo $helper->getImageUrl($merchantman->getImageUrl()); ?>" title="<?php echo $merchantman->getName(); ?>">
-
