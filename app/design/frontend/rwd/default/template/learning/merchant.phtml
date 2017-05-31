@@ -1,12 +1,21 @@
-<?php $slides = $this->getMerchantmans(); ?>
+<?php $merchantmans = $this->getMerchantmans(); ?>
 <?php $helper = Mage::helper('learning_merchant'); ?>
 <ul class="bxslider">
 
-    <?php foreach ($slides as $slide): ?>
+    <?php foreach ($merchantmans as $merchant): ?>
         <li>
-            <?php echo $slide->getName(); ?>
+            <?php echo $merchant->getName(); ?>
         </li>
     <?php endforeach; ?>
 
 </ul>
 
+<?php foreach ($merchantmans as $merchant): ?>
+
+    <li>
+        <a href="<?php echo Mage::getUrl('merchant/index/detail', array('name' => $merchant->getSlug())); ?>">
+            <?php echo $merchant->getName();  ?>
+        </a>
+
+    </li>
+<?php endforeach; ?>

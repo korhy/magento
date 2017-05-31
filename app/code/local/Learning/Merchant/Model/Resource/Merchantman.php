@@ -10,6 +10,22 @@ class Learning_Merchant_Model_Resource_merchantman extends Mage_Core_Model_Resou
         $this->_init('learning_merchant/merchantman', 'entity_id');
     }
 
+    public function loadInstanceBySlug($slug, $object){
+        $table = $this->getMainTable();
+        $readAdapter = $this->_getReadAdapter();
+
+        $sql = $readAdapter->select()->from($table)->where("slug = '".$slug."' ");
+
+        $merchantman = $readAdapter->fetchRow($sql);
+
+        if($merchantman){
+            $object->setData($merchantman);
+        }
+
+        return $object;
+
+    }
+
     /**
      * Perform actions before object save
      *
