@@ -3,6 +3,15 @@
 class Learning_Merchant_Block_Adminhtml_Merchantman_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
 
+    protected function _prepareLayout()
+    {
+        $return = parent::_prepareLayout();
+        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+        }
+        return $return;
+    }
+
     protected function _prepareForm()
     {
         $form = new Varien_Data_Form();
@@ -24,11 +33,14 @@ class Learning_Merchant_Block_Adminhtml_Merchantman_Edit_Tab_Form extends Mage_A
             'required' => true
         ));
 
-        $fieldset->addField('description', 'text', array(
-            'label'    => Mage::helper('learning_merchant')->__('Description'),
+        $fieldset->addField('description', 'editor', array(
             'name'     => 'description',
+            'label'    => Mage::helper('learning_merchant')->__('Description'),
+            'title'    => Mage::helper('learning_merchant')->__('Description'),
+            'style'     => 'height: 300px;',
             'class'    => 'required-entry',
-            'required' => true
+            'required' => true,
+            'config'    => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
         ));
 
         $fieldset->addField('image_url', 'image', array(
