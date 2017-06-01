@@ -13,4 +13,16 @@ class Learning_Merchant_IndexController extends Mage_Core_Controller_Front_Actio
         $this->loadLayout();
         $this->renderLayout();
     }
+
+    public function detailAction(){
+        $slug = $this->getRequest()->getParam('name');
+        $entity = Mage::getModel('learning_merchant/merchantman')->loadInstanceBySlug($slug);
+
+        Mage::register('merchant', $entity);
+        $products = Mage::getModel('learning_merchant/merchantman')->getProducts();
+        var_dump($products);
+        $this->loadLayout();
+        $this->renderLayout();
+
+    }
 }

@@ -5,4 +5,9 @@
             <block type="learning_merchant/merchant"  name="learning_merchant.merchant" template="learning/merchant.phtml" />
         </reference>
     </learning_merchant_index_index>
+    <learning_merchant_index_detail>
+        <reference name="content">
+            <block type="learning_merchant/merchant"  name="learning_merchant.merchant" template="learning/detail.phtml" />
+        </reference>
+    </learning_merchant_index_detail>
 </layout>
