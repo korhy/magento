@@ -23,4 +23,11 @@ class Learning_Merchant_Model_Resource_Merchantman_Product_Collection
         $this->getSelect()->where('related.merchantman_id = ?', $merchantman);
         return $this;
     }
+
+    public function addIsActiveFilter()
+    {
+        $this->addFieldToFilter('status', 1);
+
+        return $this;
+    }
 }

@@ -18,16 +18,12 @@ class Learning_Merchant_Model_Merchantman extends Mage_Core_Model_Abstract
         $this->_init('learning_merchant/merchantman');
     }
 
-    public function loadInstanceBySlug($slug){
-       return $this->_getResource()->loadInstanceBySlug($slug, $this);
+    public function loadInstanceBySlug($slug)
+    {
+       $this->_getResource()->loadInstanceBySlug($slug, $this);
 
+        return $this;
     }
-
-    public function getProducts(){
-       return $this->_getResource()->getProducts();
-
-    }
-
 
     protected $_productInstance = null;
         public function getProductInstance(){

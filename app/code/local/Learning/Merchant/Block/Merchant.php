@@ -16,4 +16,19 @@ class Learning_Merchant_Block_Merchant extends Mage_Core_Block_Template
 
         return $merchantman;
     }
+
+    public function getMerchantProducts ($merchantman){
+        $product = $merchantman->getSelectedProductsCollection()
+            ->addAttributeToSelect(array('name', 'price', 'image'))
+            ->addAttributeToFilter(
+                'status',
+                array('eq' => Mage_Catalog_Model_Product_Status::STATUS_ENABLED)
+            )
+            ->addFieldToFilter('visibility', Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH);
+
+
+        return $product;
+    }
+
+
 }
