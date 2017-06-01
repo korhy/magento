@@ -1,14 +1,7 @@
 <?php $merchantmans = $this->getMerchantmans(); ?>
 <?php $helper = Mage::helper('learning_merchant'); ?>
-<ul class="bxslider">
 
-    <?php foreach ($merchantmans as $merchant): ?>
-        <li>
-            <?php echo $merchant->getName(); ?>
-        </li>
-    <?php endforeach; ?>
-
-</ul>
+<h1>Merchantman list :</h1>
 
 <?php foreach ($merchantmans as $merchant): ?>
 
@@ -16,6 +9,5 @@
         <a href="<?php echo Mage::getUrl('merchant/index/detail', array('name' => $merchant->getSlug())); ?>">
             <?php echo $merchant->getName();  ?>
         </a>
-
     </li>
 <?php endforeach; ?>

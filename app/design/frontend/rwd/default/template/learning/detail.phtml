@@ -1,5 +1,9 @@
 <?php $merchantman = Mage::registry('merchant');
 ?>
+<?php $products = $this->getMerchantProducts($merchantman);
+
+?>
+
 
 <?php $helper = Mage::helper('learning_merchant'); ?>
 <?php echo 'Name -> '.$merchantman->getName();  ?>
@@ -9,3 +13,23 @@
 <?php echo 'name -> '.$merchantman->getDescription();  ?>
 
 <img src="<?php echo $helper->getImageUrl($merchantman->getImageUrl()); ?>" title="<?php echo $merchantman->getName(); ?>">
+
+<h3>Produits</h3>
+<ul>
+    <?php if(count($products) > 0): ?>
+
+        <?php foreach ($products as $product): ?>
+
+            <a href="<?php echo $product->getProductUrl() ?>">
+                        <?php echo $product->getName();  ?>
+            </a>
+        <?php endforeach; ?>
+
+    <?php else: ?>
+    <p>Pas de produit associé</p>
+
+    <?php endif; ?>
+
+
+
+</ul>

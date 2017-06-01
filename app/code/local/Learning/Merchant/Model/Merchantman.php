@@ -25,12 +25,6 @@ class Learning_Merchant_Model_Merchantman extends Mage_Core_Model_Abstract
         return $this;
     }
 
-    public function getProducts(){
-       return $this->_getResource()->getProducts();
-
-    }
-
-
     protected $_productInstance = null;
         public function getProductInstance(){
             if (!$this->_productInstance) {
