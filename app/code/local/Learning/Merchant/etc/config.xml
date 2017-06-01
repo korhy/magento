@@ -71,6 +71,16 @@
                 </learning_merchant>
             </updates>
         </layout>
+        <events>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+                    <learning_merchant_page_block_html_topmenu_gethtml_before>
+                        <class>learning_merchant/observer</class>
+                        <method>addToTopMenu</method>
+                    </learning_merchant_page_block_html_topmenu_gethtml_before>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+        </events>
     </frontend>
     <admin>
         <routers>
