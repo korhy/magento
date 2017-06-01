@@ -4,7 +4,8 @@
 
     <?php foreach ($slides as $slide): ?>
         <li>
-            <?php echo $slide->getName(); ?>
+            <img src="<?php echo $helper->getImageUrl($slide->getImageUrl()); ?>" title="<?php echo $slide->getName(); ?>">
+            <a href="#"><?php echo $slide->getName(); ?></a>
         </li>
     <?php endforeach; ?>
 
